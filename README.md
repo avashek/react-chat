@@ -1,6 +1,6 @@
 A Chat App using reactjs and socket.io  
 
-# Steps :
+### Steps :
 ##### 1. In the project directory :  
 `npm install`  
 ##### 2. Client setup :  
