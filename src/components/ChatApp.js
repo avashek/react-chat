@@ -1,35 +1,53 @@
 import React, { Component } from 'react';
 import './App.css';
 import TextBox from './TextBox';
+import UserInfo from './UserInfo';
+import ChatLog from './ChatLog';
 import io from 'socket.io-client';
 
-const socket = io('http://192.168.1.145:4040');
+const socket = io('http://localhost:4040');
 
-socket.on('bc',(data)=>{console.log(data)});
 
 class ChatApp extends Component {
   constructor(){
     super();
     this.state = {
       currentMessage : '',
+      uname : '',
       chatlog : [],
     };
     this.handleSend = this.handleSend.bind(this);
+    this.handleChangeName = this.handleChangeName.bind(this);
+  }
+  componentDidMount(){
+    console.log("ChatApp mount");
+    socket.on('bc',(data)=>{
+      console.log(data);
+      if(Object.keys(this.state)){
+        this.setState(prevState => {chatlog : prevState.chatlog.push(data)});
+      }
+    });
   }
   handleSend(message){
-    console.log(message);
+    //console.log(message);
     this.setState({
       currentMessage : message,
     },()=>{
-      socket.emit('event',message,"useragent",(log)=>{
-      this.setState({chatlog : log});
-    })});
-
-    
+      if(message && this.state.uname)
+      socket.emit('event',message,this.state.uname)
+    });
+  }
+  handleChangeName(uname){
+    //console.log(uname);
+    this.setState({
+      uname : uname,
+    });
   }
   render() {
     return (
       <div className="chat-app">
+        <UserInfo handleChangeName={this.handleChangeName} uname={this.state.uname}/>
+        <ChatLog chatlog={this.state.chatlog}/>
         <TextBox handleSend={this.handleSend}/>
       </div>
     );
