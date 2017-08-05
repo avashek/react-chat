@@ -5,7 +5,7 @@ import UserInfo from './UserInfo';
 import ChatLog from './ChatLog';
 import io from 'socket.io-client';
 
-const socket = io('http://localhost:4040');
+const socket = io('http://192.168.1.145:4040');
 
 
 class ChatApp extends Component {
@@ -24,7 +24,9 @@ class ChatApp extends Component {
     socket.on('bc',(data)=>{
       console.log(data);
       if(Object.keys(this.state)){
-        this.setState(prevState => {chatlog : prevState.chatlog.push(data)});
+        let templog = this.state.chatlog;
+        templog.push(data);
+        this.setState({chatlog : templog});
       }
     });
   }

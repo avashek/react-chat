@@ -1,35 +1,61 @@
 .chat-app{
-  border : 1px solid black;
-  padding : 5px;
-  max-width : 500px
-}
-.user-info{
-  border-bottom : 1px solid black;
-}
-.chat-log{
-  height : 300px;
+  height : 100vh;
   display : flex;
-  flex-flow : column-reverse nowrap;
-  
-  overflow-y: scroll;
-}
-.chat-box{
-  border-top : 1px solid black;
-}
-
-.chat-box .form input[type="text"]{
-  height : 25px;
-  width : 100%;
-  margin-right: 5px;
+  flex-flow : column nowrap;
+  background-color : #f95;
 }
 .form{
-  padding : 5px;
-  padding-top : 10px;
   display : flex;
   justify-content: space-between;
 }
-.username>input{
-  height : 20px;
-  border : none;
-  font-size : 1em;
+
+.user-info{
+  height : 10vh;
+  font-size : 2em;
+  text-align : center;
+}
+.chat-log{
+  height : 80vh;
+  overflow-y: auto;
+  display : flex;
+  flex-flow : column-reverse nowrap;
+  padding : 5px;
+}
+.chat-log span{
+  margin : 2px;
+  min-height: 50px;
+  display : flex;
+  flex-flow: column nowrap;
+  background-color: #fff;
+}
+.chat-log>span>label{
+  padding: 2px;
+}
+.chat-log>span>label:first-child{
+  min-height : 20px;
+  font-size: 1em;
+  border-bottom : 1px solid #666;
+}
+.chat-log>span>label:last-child{
+  min-height : 30px;
+  max-width : 80%;
+  font-size: 1.3em;
+}
+.chat-box{
+  height : 10vh;
+}
+.chat-box input{
+  height : 40px;
+  padding :2px;
+  margin-top : 10px;
+}
+.chat-box input[type="text"]{
+  width : 100%;
+  margin-right : 10px;
+  margin-left : 5px;
+}
+.chat-box input[type="submit"]{
+  height : 48px;
+  width : 60px;
+  margin-right : 5px;
 }
