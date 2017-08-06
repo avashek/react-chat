@@ -1,61 +1,93 @@
-.chat-app{
-  height : 100vh;
-  display : flex;
-  flex-flow : column nowrap;
-  background-color : #f95;
+.chat-app {
+  height: 100vh;
+  display: flex;
+  flex-flow: column nowrap;
+  padding-left: 5px;
+  padding-right: 5px;
 }
-.form{
-  display : flex;
+
+.form {
+  display: flex;
   justify-content: space-between;
 }
 
-.user-info{
-  height : 10vh;
-  font-size : 2em;
-  text-align : center;
+.user-info {
+  height: 10vh;
+  font-size: 1.5em;
 }
-.chat-log{
-  height : 80vh;
+
+.user-info input {
+  height: 30px;
+  display:inline-block;
+  border: none;
+  background-color: inherit;
+  font-size: 1em;
+  transition: width 0.2s ease-out;
+}
+
+.user-info input[type="text"]:focus {
+  outline : 0px;
+  border-bottom: 1px solid black;
+  width: 100px;
+}
+
+.chat-log {
+  background-color : #dff;
+  border: 1px solid #00f;
+  height: 80vh;
   overflow-y: auto;
-  display : flex;
-  flex-flow : column-reverse nowrap;
-  padding : 5px;
+  display: flex;
+  flex-flow: column-reverse nowrap;
+  padding: 5px;
 }
-.chat-log span{
-  margin : 2px;
-  min-height: 50px;
-  display : flex;
-  flex-flow: column nowrap;
-  background-color: #fff;
+
+.chat-log span {
+  background-color : #0cf;
+  border : inherit;
+  padding: 5px;
+  padding-left: 20px;
+  padding-right: 15px;
+  margin: 2px;
+  width: 80%;
+  border-radius: 50px;
 }
-.chat-log>span>label{
+
+.chat-log>span>label {
   padding: 2px;
 }
-.chat-log>span>label:first-child{
-  min-height : 20px;
+
+.chat-log>span>label:first-child {
+  display: block;
   font-size: 1em;
-  border-bottom : 1px solid #666;
+  border-bottom: 1px solid #00f;
 }
-.chat-log>span>label:last-child{
-  min-height : 30px;
-  max-width : 80%;
+
+.chat-log>span>label:last-child {
+  white-space: pre-line;
   font-size: 1.3em;
+  height : auto;
 }
-.chat-box{
-  height : 10vh;
+
+.chat-box {
+  height: 10vh;
 }
-.chat-box input{
-  height : 40px;
-  padding :2px;
-  margin-top : 10px;
+
+.chat-box input {
+  height: 40px;
+  margin-top: 10px;
+  font-size : 1.2em;
+  border : 1px solid #00f;
+  border-radius : 5px;
 }
-.chat-box input[type="text"]{
-  width : 100%;
-  margin-right : 10px;
-  margin-left : 5px;
+
+.chat-box input[type="text"] {
+  padding:2px;
+  width: 100%;
+  margin-right: 10px;
+  padding-left : 5px;
 }
-.chat-box input[type="submit"]{
-  height : 48px;
-  width : 60px;
-  margin-right : 5px;
+
+.chat-box input[type="submit"] {
+  height: 45px;
+  width: 60px;
 }
