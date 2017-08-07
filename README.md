@@ -6,7 +6,6 @@ A Chat App using reactjs and socket.io
 ##### 2. Client setup :  
 `npm start`  
 ##### 3. Server setup :  
-`cd chat-server`  
-`node index.js`  
+`npm run server`  
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
