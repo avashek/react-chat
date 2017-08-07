@@ -9,7 +9,8 @@ io.on('connection',function(socket){
        if(fn) fn(log);
        console.log(sender,message);
        io.emit('bc',{sender : sender,message : message});
-       say.speak(message);
+       //say commented, uncomment this if you want to listen to messages
+       //say.speak(message);
     });
     socket.on('disconnect',()=>{});
 })
